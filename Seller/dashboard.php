@@ -64,14 +64,14 @@
                 $bid_due_date = $row['bid_due_date'];
 
                 // GET MAX BIDDING PRICE
-                $sql = mysqli_query($conn, "SELECT *, MAX(CAST(bidding_price AS DECIMAL)) as max_bidding_price 
-                FROM bidding
-                WHERE product_Id='$productId'
-                GROUP BY product_Id
-                ORDER BY max_bidding_price DESC
-                LIMIT 1");
+                $sql = mysqli_query($conn, "SELECT MAX(CAST(bidding_price AS DECIMAL)) as max_bidding_price 
+                             FROM bidding
+                             WHERE product_Id='$productId'");
                 $row_max = mysqli_fetch_array($sql);
-                $max_bid_price = $row_max['max_bidding_price'];
+                if ($row_max !== null) {
+                    $max_bid_price = $row_max['max_bidding_price'];
+                } else {
+                }
 
           ?>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-12">
