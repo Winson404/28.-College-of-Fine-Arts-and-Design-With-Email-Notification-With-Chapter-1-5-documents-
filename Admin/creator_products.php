@@ -72,9 +72,17 @@
                 GROUP BY product_Id
                 ORDER BY max_bidding_price DESC
                 LIMIT 1;");
-                $row_max = mysqli_fetch_array($sql);
-                $max_bid_price = $row_max['max_bidding_price'];
 
+                if ($sql) {
+                    $row_max = mysqli_fetch_array($sql);
+                    if ($row_max !== null) {
+                        $max_bid_price = $row_max['max_bidding_price'];
+                    } else {
+                        $max_bid_price = 0;
+                    }
+                } else {
+                    $max_bid_price = 0;
+                }
           ?>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-12">
                     <div class="card bg-light d-flex flex-fill">
@@ -82,14 +90,14 @@
                       </div>
                       <a href="product_view.php?product_Id=<?php echo $row['product_Id']; ?>">
                         <div class="card-body" style="margin-bottom: -30px;">
-                          <div class="img">
-                            <img src="../images-product/<?php echo $row['product_image']; ?>" alt="" class="img-fluid product-image">
-                          </div>
-                          <p>
-                            <?php echo ucwords($row['product_name']); ?><br>
-                            <span class="text-sm text-danger">₱<?php echo number_format($row['starting_price'], 2, '.', ','); ?></span> <br>
-                            <img src="../images/hourglass.gif" alt="" width="20"> <span class="text-xs text-muted" id="countdown_<?php echo $productId; ?>"></span>
-                          </p>
+                            <div class="img-container" style="height: 200px; overflow: hidden;">
+                                <img src="../images-product/<?php echo $row['product_image']; ?>" alt="" class="img-fluid product-image">
+                            </div>
+                            <p>
+                                <?php echo ucwords($row['product_name']); ?><br>
+                                <span class="text-sm text-danger">₱<?php echo number_format($row['starting_price'], 2, '.', ','); ?></span> <br>
+                                <img src="../images/hourglass.gif" alt="" width="20"> <span class="text-xs text-muted" id="countdown_<?php echo $productId; ?>"></span>
+                            </p>
                         </div>
                       </a>
                       <div class="card-footer">
@@ -190,14 +198,14 @@
                       </div>
                       <a href="product_view.php?product_Id=<?php echo $row['product_Id']; ?>">
                         <div class="card-body" style="margin-bottom: -30px;">
-                          <div class="img">
-                            <img src="../images-product/<?php echo $row['product_image']; ?>" alt="" class="img-fluid product-image">
-                          </div>
-                          <p>
-                            <?php echo ucwords($row['product_name']); ?><br>
-                            <span class="text-sm text-danger">₱<?php echo number_format($row['starting_price'], 2, '.', ','); ?></span> <br>
-                            <img src="../images/hourglass.gif" alt="" width="20"> <span class="text-xs text-muted" id="countdown_<?php echo $productId; ?>"></span>
-                          </p>
+                            <div class="img-container" style="height: 200px; overflow: hidden;">
+                                <img src="../images-product/<?php echo $row['product_image']; ?>" alt="" class="img-fluid product-image">
+                            </div>
+                            <p>
+                                <?php echo ucwords($row['product_name']); ?><br>
+                                <span class="text-sm text-danger">₱<?php echo number_format($row['starting_price'], 2, '.', ','); ?></span> <br>
+                                <img src="../images/hourglass.gif" alt="" width="20"> <span class="text-xs text-muted" id="countdown_<?php echo $productId; ?>"></span>
+                            </p>
                         </div>
                       </a>
                       <div class="card-footer">
@@ -301,14 +309,14 @@
                       </div>
                       <a href="product_view.php?product_Id=<?php echo $row['product_Id']; ?>">
                         <div class="card-body" style="margin-bottom: -30px;">
-                          <div class="img">
-                            <img src="../images-product/<?php echo $row['product_image']; ?>" alt="" class="img-fluid product-image">
-                          </div>
-                          <p>
-                            <?php echo ucwords($row['product_name']); ?><br>
-                            <span class="text-sm text-danger">₱<?php echo number_format($row['starting_price'], 2, '.', ','); ?></span> <br>
-                            <img src="../images/hourglass.gif" alt="" width="20"> <span class="text-xs text-muted" id="countdown_<?php echo $productId; ?>"></span>
-                          </p>
+                            <div class="img-container" style="height: 200px; overflow: hidden;">
+                                <img src="../images-product/<?php echo $row['product_image']; ?>" alt="" class="img-fluid product-image">
+                            </div>
+                            <p>
+                                <?php echo ucwords($row['product_name']); ?><br>
+                                <span class="text-sm text-danger">₱<?php echo number_format($row['starting_price'], 2, '.', ','); ?></span> <br>
+                                <img src="../images/hourglass.gif" alt="" width="20"> <span class="text-xs text-muted" id="countdown_<?php echo $productId; ?>"></span>
+                            </p>
                         </div>
                       </a>
                       <div class="card-footer">

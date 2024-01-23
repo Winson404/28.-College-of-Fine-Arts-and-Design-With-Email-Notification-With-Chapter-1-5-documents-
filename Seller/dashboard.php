@@ -312,7 +312,7 @@
                       </a>
                       <div class="card-footer">
                         <input type="hidden" class="form-control form-control-sm" name="product_Id" value="<?php echo $productId; ?>" id="product_Id_<?php echo $productId; ?>">
-                        <p class="text-sm mb-0 float-left">Top price: <a href="product_bidding.php?product_Id=<?php echo $productId; ?>">₱<?php echo number_format($max_bid_price, 2, '.', ','); ?></a></p>
+                        <p class="text-sm mb-0 float-left"><?php echo $productId; ?>Top price: <a href="product_bidding.php?product_Id=<?php echo $productId; ?>">₱<?php echo number_format($max_bid_price, 2, '.', ','); ?></a></p>
                         <p class="text-sm mb-0 float-right">Buyers: <a href="product_bidding.php?product_Id=<?php echo $productId; ?>"><?php echo $row['num_bids']; ?></a></p>
                       </div>
                     </div>

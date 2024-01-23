@@ -21,7 +21,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <div class="row d-flex justify-content-center">
+        <div class="row">
 
           <div class="col-lg-3 col-6">
             <div class="small-box bg-info">
@@ -35,7 +35,7 @@
                 <p>Registered Administrators</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="fas fa-user-shield"></i>
               </div>
               <a href="admin.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -54,7 +54,7 @@
                 <p>Registered Sellers</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="ion ion-bag"></i>
               </div>
               <a href="seller.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -73,9 +73,28 @@
                 <p>Registered Buyers</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="ion ion-person"></i>
               </div>
               <a href="users.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <?php
+                  $product = mysqli_query($conn, "SELECT product_Id from product");
+                  $row_product = mysqli_num_rows($product);
+                ?>
+                <h3><?php echo $row_product; ?></h3>
+
+                <p>Registered Buyers</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-cube"></i>
+              </div>
+              <a href="product.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
 
